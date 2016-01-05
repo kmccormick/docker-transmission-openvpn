@@ -49,6 +49,10 @@ for configFile in $provider/*.ovpn;
 script-security 2
 up /etc/transmission/start.sh
 down /etc/transmission/stop.sh
+
+# Drop privileges after starting
+user nobody
+group nogroup
 EOT
 
 	done

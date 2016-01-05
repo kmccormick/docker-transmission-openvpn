@@ -1,0 +1,2 @@
+# Allow OpenVPN down script to stop transmission
+nobody ALL=(ALL) NOPASSWD: /usr/bin/pkill -x transmission-da

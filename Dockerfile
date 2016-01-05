@@ -20,6 +20,7 @@ RUN apt-get update \
 # Add configuration and scripts
 ADD openvpn/ /etc/openvpn/
 ADD transmission/ /etc/transmission/
+ADD sudoers /etc/sudoers.d/openvpn-transmission
 
 ENV OPENVPN_USERNAME=**None** \
     OPENVPN_PASSWORD=**None** \
