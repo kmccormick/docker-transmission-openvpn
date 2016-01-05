@@ -37,6 +37,7 @@ else
   mkdir -p /config
   echo $OPENVPN_USERNAME > /config/openvpn-credentials.txt
   echo $OPENVPN_PASSWORD >> /config/openvpn-credentials.txt
+  chown $DOCKER_TRANSMISSION_USER /config/openvpn-credentials.txt
   chmod 600 /config/openvpn-credentials.txt
 fi
 

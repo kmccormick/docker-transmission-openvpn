@@ -95,7 +95,17 @@ ENV OPENVPN_USERNAME=**None** \
     "TRANSMISSION_UTP_ENABLED=true" \
     "TRANSMISSION_WATCH_DIR=/data/watch" \
     "TRANSMISSION_WATCH_DIR_ENABLED=true" \
-    "TRANSMISSION_HOME=/data/transmission-home"
+    "TRANSMISSION_HOME=/data/transmission-home" \
+    "DOCKER_TRANSMISSION_USER=transmission" \
+    "DOCKER_TRANSMISSION_UID=22000" \
+    "DOCKER_TRANSMISSION_GROUP=transmission" \
+    "DOCKER_TRANSMISSION_GID=22000"
+
+
+RUN getent group ${DOCKER_TRANSMISSION_GROUP} >/dev/null || \
+      groupadd --gid ${DOCKER_TRANSMISSION_GID} ${DOCKER_TRANSMISSION_GROUP} ; \
+      getent passwd ${DOCKER_TRANSMISSION_USER} >/dev/null || \
+      useradd --uid ${DOCKER_TRANSMISSION_UID} --gid ${DOCKER_TRANSMISSION_GROUP} ${DOCKER_TRANSMISSION_USER}
 
 # Expose port and run
 EXPOSE 9091
