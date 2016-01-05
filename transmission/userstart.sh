@@ -19,7 +19,7 @@ if [ ! -e "/dev/random" ]; then
 fi
 
 echo "STARTING TRANSMISSION"
-exec /usr/bin/transmission-daemon -g ${TRANSMISSION_HOME} --logfile ${TRANSMISSION_HOME}/transmission.log &
+exec /usr/bin/transmission-daemon -g ${TRANSMISSION_HOME} --foreground &
 
 if [ "$OPENVPN_PROVIDER" = "PIA" ]
 then
