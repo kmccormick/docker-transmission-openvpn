@@ -8,8 +8,6 @@ echo "Updating TRANSMISSION_BIND_ADDRESS_IPV4 to tun0 ip: ${tun0ip}"
 export TRANSMISSION_BIND_ADDRESS_IPV4=${tun0ip}
 
 echo "Generating transmission settings.json from env variables"
-# Ensure TRANSMISSION_HOME is created
-mkdir -p ${TRANSMISSION_HOME}
 dockerize -template /etc/transmission/settings.tmpl:${TRANSMISSION_HOME}/settings.json /bin/true
 
 if [ ! -e "/dev/random" ]; then
